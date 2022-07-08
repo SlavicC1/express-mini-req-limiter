@@ -1,0 +1,19 @@
+{
+  "name": "express-mini-req-limeter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SlavicC1",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "ioredis": "^5.1.0",
+    "pg-promise": "^10.11.1",
+    "redis": "^4.1.1",
+    "typescript": "^4.7.4"
+  }
+}
