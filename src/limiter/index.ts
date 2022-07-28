@@ -32,8 +32,7 @@ export class RequestLimiter {
                         + '. Next try in ' + (new Date(nextReqTime)).toLocaleString('ru'), HttpStatus.TOO_MANY_REQUESTS);
                 }
             } else {
-                counter.add(weight);
-                await this.store.save(counter);
+                await this.store.incrementCount(uuid, weight);
             }
         } else {
             const newCounter = new RequestCounter(uuid, weight, now);

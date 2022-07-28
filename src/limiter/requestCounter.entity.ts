@@ -14,8 +14,4 @@ export class RequestCounter {
     this.count = weight;
     this.reqWindowStartTime = reqWindowStartTime;
   }
-
-  add( weight: number) {
-    this.count += weight;
-  }
 }

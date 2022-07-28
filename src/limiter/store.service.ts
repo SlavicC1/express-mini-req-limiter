@@ -11,10 +11,6 @@ export class Store {
     private requestRepository: Repository<RequestCounter>,
   ) {}
 
-  findAll(): Promise<RequestCounter[]> {
-    return this.requestRepository.find();
-  }
-
   findOne(uuid: string): Promise<RequestCounter> {
     return this.requestRepository.findOneBy({ uuid });
   }
@@ -25,5 +21,9 @@ export class Store {
 
   async save(counter: RequestCounter): Promise<void>{
     await this.requestRepository.save(counter);
+  }
+
+  async incrementCount(uuid: string, weight: number) {
+    await this.requestRepository.increment({ uuid }, 'count', weight);
   }
 }
