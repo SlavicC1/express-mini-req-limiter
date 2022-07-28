@@ -65,6 +65,17 @@ class ConfigService {
       ssl: this.isProduction(),
 
       synchronize: true,
+
+      cache: {
+        type: "ioredis",
+        options: {
+            host: this.getValue('REDIS_HOST'),
+            port: this.getValue('REDIS_PORT'),
+            username: this.getValue('REDIS_USER'),
+            password: this.getValue('REDIS_PASSWORD'),
+            db: this.getValue('REDIS_DATABASE'),
+        }
+      }
     };
   }
 
@@ -76,7 +87,12 @@ const configService = new ConfigService(process.env)
     'POSTGRES_PORT',
     'POSTGRES_USER',
     'POSTGRES_PASSWORD',
-    'POSTGRES_DATABASE'
+    'POSTGRES_DATABASE',
+    'REDIS_HOST',
+    'REDIS_PORT',
+    'REDIS_USER',
+    'REDIS_PASSWORD',
+    'REDIS_DATABASE',
   ]);
 
 export { configService };

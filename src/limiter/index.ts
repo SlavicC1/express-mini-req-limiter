@@ -18,8 +18,8 @@ export class RequestLimiter {
 
     async requestAllowed(uuid: string, weight: number) {
         const now = Date.now();
-        const counter = await this.store.findOne( uuid );
-        console.log(counter);
+        const counter = await this.store.findOne( uuid, this.timeToRefresh );
+
         if(counter) {
             if (counter.count >= this.limit) {
                 const dTime = now - counter.reqWindowStartTime;

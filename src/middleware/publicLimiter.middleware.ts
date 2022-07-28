@@ -1,13 +1,12 @@
-import { Injectable, NestMiddleware } from '@nestjs/common';
+import { Injectable, NestMiddleware, Type } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { RequestLimiter, Store } from '../limiter';
 import { configService } from '../config/config.service';
-import { LimiterMiddleware } from './';
 
 const RATE_LIMIT_BY_IP = +configService.getPublicLimit() || 100;
 const RESET_TIME_BY_IP = +configService.getPublicResetTime() || 60 * 60 * 1000;
 
-export const PublicLimiterMiddlewareWithWeight = ( weight: number ): LimiterMiddleware =>  {
+export const PublicLimiterMiddlewareWithWeight = ( weight: number ): Type<NestMiddleware> =>  {
   @Injectable() 
   class LimiterMiddleware implements NestMiddleware {
     private limiter: RequestLimiter;

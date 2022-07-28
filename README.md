@@ -2,7 +2,9 @@
 
   App enviroment variables sets in .env file
   
-  Docer database container parameters sets in src/scripts/start-db.sh
+  Docer postgres container parameters sets in src/scripts/start-db.sh
+
+  Docer redis container parameters sets in src/scripts/start-cache.sh
 
 ## Installation
 
@@ -10,10 +12,14 @@
 $ npm install
 ```
 
-## Running posrgress container in docer
+## Running containers in docer
 
 ```bash
+# postgres
 $ npm run start:dev:db
+
+# redis
+$ npm run start:dev:cache
 ```
 
 ## Running the app

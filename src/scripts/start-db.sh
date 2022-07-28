@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-SERVER="localhost";
+SERVER="postgres";
 PW="postgrespw";
 DB="store";
 
