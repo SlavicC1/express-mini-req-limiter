@@ -2,16 +2,12 @@ import { Injectable, NestMiddleware } from '@nestjs/common';
 import { Request, Response, NextFunction } from 'express';
 import { RequestLimiter, Store } from '../limiter';
 import { configService } from '../config/config.service';
-
-//TO DO 
-//Описать тип для Limiter 
-//фабрика @Injectable() классов
-type Limiter = any;
+import { LimiterMiddleware } from './';
 
 const RATE_LIMIT_BY_IP = +configService.getPublicLimit() || 100;
 const RESET_TIME_BY_IP = +configService.getPublicResetTime() || 60 * 60 * 1000;
 
-export const PublicLimiterMiddlewareWithWeight = ( weight: number ): Limiter =>  {
+export const PublicLimiterMiddlewareWithWeight = ( weight: number ): LimiterMiddleware =>  {
   @Injectable() 
   class LimiterMiddleware implements NestMiddleware {
     private limiter: RequestLimiter;
