@@ -2,9 +2,9 @@
 
   App enviroment variables sets in .env file
   
-  Docer postgres container parameters sets in src/scripts/start-db.sh
+  Docker postgres container parameters sets in src/scripts/start-db.sh
 
-  Docer redis container parameters sets in src/scripts/start-cache.sh
+  Docker redis container parameters sets in src/scripts/start-cache.sh
 
 ## Installation
 
